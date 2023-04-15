@@ -25,15 +25,14 @@ screen.onkeypress(key="s", fun=l_paddle.move_down)
 game_is_on = True
 
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(ball.move_speed)
     screen.update()
     ball.move()
     if ball.ycor() > 280 or ball.ycor() < -280:
         ball.bounce()
 
-    if ball.distance(r_paddle) < 50 and ball.xcor() > 320 or ball.distance(l_paddle) < 50 and ball.xcor() < -320:
+    if ball.distance(r_paddle) < 80 and ball.xcor() > 320 or ball.distance(l_paddle) < 80 and ball.xcor() < -320:
         ball.paddle_bounce()
-        ball.speed() + 10
 
     if ball.xcor() > 400:
         ball.reset_postion()
